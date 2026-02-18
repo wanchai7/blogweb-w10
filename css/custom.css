@@ -1,274 +1,331 @@
+/* ========================================================= */
+/* --- Global Reset & Base Styles (การตั้งค่าพื้นฐานของหน้าเว็บ) --- */
+/* ========================================================= */
+
+/* เลือกทุก element (*) เพื่อล้างค่าเริ่มต้น */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; /* คำนวณความกว้างรวม border และ padding ไม่ให้เกิน width ที่กำหนด */
+  margin: 0;             /* ลบระยะห่างภายนอก (margin) เริ่มต้น */
+  padding: 0;            /* ลบระยะห่างภายใน (padding) เริ่มต้น */
 }
 
+/* ตั้งค่าขนาดตัวอักษรหลักของ html */
 html {
-  font-size: 16px;
+  font-size: 16px; /* กำหนดขนาด base font เป็น 16px */
 }
 
+/* การตั้งค่าสำหรับ body */
 body {
-  font-family: "Bricolage Grotesque", "mali", "Segoe UI", sans-serif;
-  /* background-color: salmon; */
-  color: #000000;
+  font-family: "Bricolage Grotesque", "mali", "Segoe UI", sans-serif; /* กำหนดแบบอักษรหลักและแบบสำรอง */
+  /* background-color: salmon; */ /* (ปิดการใช้งาน) สีพื้นหลังแบบชั่วคราว */
+  color: #000000; /* สีตัวอักษรหลักเป็นสีดำ */
 }
 
+/* คลาส wrapper สำหรับจัดกึ่งกลางและกำหนดความกว้างสูงสุด */
 .wrapper {
-  width: 1000px;
-  max-width: 100%;
-  margin: auto;
+  width: 1000px;   /* ความกว้างที่ต้องการ */
+  max-width: 100%; /* ความกว้างสูงสุดไม่เกินจอภาพ */
+  margin: auto;    /* จัดกึ่งกลางหน้าจออัตโนมัติ */
 
-  /* background-color: salmon; */
+  /* background-color: salmon; */ /* (ปิดการใช้งาน) สีพื้นหลังทดสอบ */
 }
+
+/* การตั้งค่าลิงก์ทั่วไป */
 a {
-  color: rgb(0, 31, 131);
-  text-decoration: none;
+  color: rgb(0, 31, 131); /* สีของลิงก์ (น้ำเงินเข้ม) */
+  text-decoration: none;  /* เอาเส้นขีดเส้นใต้ออก */
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* เมื่อเอาเมาส์ชี้ ให้มีเส้นขีดเส้นใต้ */
 }
-/* header */
 
+/* ========================================================= */
+/* --- Header Section (ส่วนหัวของเว็บไซต์) --- */
+/* ========================================================= */
+
+/* กล่องคลุมส่วนหัวทั้งหมด */
 .sit-header {
-  background-color: aliceblue;
-  padding: 20px 0;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: aliceblue; /* สีพื้นหลังแดงอ่อน/ฟ้าอ่อน (aliceblue) */
+  padding: 20px 0;             /* ระยะห่างบน-ล่าง 20px */
+  border-bottom: 2px solid rgb(0, 0, 0); /* เส้นขอบล่างสีดำหนา 2px */
 }
 
+/* กล่องจัดวางเนื้อหาภายในส่วนหัว */
 .box-header-inner {
-  display: flex;
-  justify-content: space-between;
+  display: flex;             /* ใช้ Flexbox ในการจัดวาง */
+  justify-content: space-between; /* จัดให้เนื้อหาแยกไปชิดซ้ายและขวา */
 }
 
+/* ชื่อหลักของเว็บในส่วนหัว */
 .header-title {
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 4px;
+  font-weight: 700;    /* ตัวหนา */
+  font-size: 1.5rem;   /* ขนาดตัวอักษร 1.5 เท่าของ base font */
+  margin-bottom: 4px;  /* เว้นระยะด้านล่างเล็กน้อย */
 }
 
+/* คำอธิบายรองในส่วนหัว */
 .header-subtitle {
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: rgb(179, 179, 179);
+  font-weight: 400;    /* ตัวปกติ */
+  font-size: 0.8rem;   /* ขนาดตัวเล็กกว่าปกติ */
+  color: rgb(179, 179, 179); /* สีเทาอ่อน */
 }
+
+/* ไอคอนโซเชียลมีเดีย */
 .social-icon a {
-  font-weight: 600;
-  font-size: 1rem;
-  color: rgb(0, 0, 0);
+  font-weight: 600;    /* ตัวหนาปานกลาง */
+  font-size: 1rem;     /* ขนาดปกติ */
+  color: rgb(0, 0, 0); /* สีดำ */
 
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  border: 1px solid rgb(0, 0, 0); /* กรอบสีดำ */
+  border-radius: 50%; /* ทำเป็นวงกลม */
+  width: 30px;        /* ความกว้าง 30px */
+  height: 30px;       /* ความสูง 30px */
 
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
+  display: inline-flex;     /* จัดให้เป็นกล่องแบบ inline ที่ใช้ flex ข้างในได้ */
+  justify-content: center;  /* จัดไอคอนให้อยู่กึ่งกลางแนวนอน */
+  align-items: center;      /* จัดไอคอนให้อยู่กึ่งกลางแนวตั้ง */
+  margin-left: 10px;        /* เว้นระยะห่างจากไอคอนตัวก่อนหน้า */
 
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* เอฟเฟกต์การเปลี่ยนแปลง 0.3 วินาที */
 }
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ชี้ที่ไอคอนโซเชียล */
 .social-icon a:hover {
-  border-color: rgb(0, 0, 0);
-  background-color: rgb(103, 164, 255);
-  color: blue;
+  border-color: rgb(0, 0, 0);       /* สีขอบ (เหมือนเดิม) */
+  background-color: rgb(103, 164, 255); /* เปลี่ยนสีพื้นหลังเป็นฟ้า */
+  color: blue;                      /* เปลี่ยนสีไอคอนเป็นน้ำเงิน */
 
-  transform: translateY(-5px);
+  transform: translateY(-5px);      /* ขยับขึ้นด้านบน 5px */
 }
 
-/* } l                           navbar                            l */
+/* ========================================================= */
+/* --- Navigation Bar (แถบเมนูนำทาง) --- */
+/* ========================================================= */
 
+/* รายการเมนู (ul) */
 .nav-menu {
-  list-style: none;
-  display: flex;
-  /* gap: 15px; */
-  flex-wrap: wrap;
+  list-style: none; /* เอา bullet points ออก */
+  display: flex;    /* จัดเรียงแนวนอน */
+  /* gap: 15px; */  /* (ปิดการใช้งาน) ระยะห่างระหว่างเมนู */
+  flex-wrap: wrap;  /* ให้ปัดบรรทัดใหม่ถ้ายาวเกิน */
 }
 
+/* แถบเมนูหลัก */
 .main-nav {
-  background-color: rgb(0, 126, 184);
+  background-color: rgb(0, 126, 184); /* สีพื้นหลังแถบเมนู (ฟ้าเข้ม) */
 }
 
+/* ลิงก์ในเมนู (a) */
 .nav-menu li a {
-  color: rgb(255, 255, 255);
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: block;
-  padding: 10px 0;
-  text-decoration: none;
-  margin-left: 50px;
+  color: rgb(255, 255, 255); /* สีตัวอักษรขาว */
+  font-size: 0.9rem;         /* ขนาดตัวอักษร */
+  font-weight: 600;          /* ตัวหนา */
+  display: block;            /* ให้คลิกได้เต็มพื้นที่ของบล็อก */
+  padding: 10px 0;           /* ระยะห่างบน-ล่าง */
+  text-decoration: none;     /* เอาเส้นใต้ลิงก์ออก */
+  margin-left: 50px;         /* เว้นระยะซ้าย 50px */
 }
 
+/* เอฟเฟกต์เมื่อชี้เมนู หรือ เป็นเมนูที่ active อยู่ */
 .nav-menu li a:hover,
 .nav-menu li a.active {
   /* เรียก classใช้ . */
-  background-color: rgb(172, 216, 255);
-  color: #000000;
+  background-color: rgb(172, 216, 255); /* เปลี่ยนสีพื้นหลังเป็นฟ้าอ่อน */
+  color: #000000;                       /* เปลี่ยนสีตัวอักษรเป็นดำ */
 }
 
-/* hero section */
+/* ========================================================= */
+/* --- Hero Section (ส่วนแบนเนอร์หรือไฮไลท์) --- */
+/* ========================================================= */
 
+/* กล่องคลุม Hero section */
 .hero-content {
-  background-color: rgb(224, 243, 255);
-  padding: 40px 0;
-  box-shadow: 0 4px 15px rgb(226, 226, 226);
-  margin-bottom: 30px;
+  background-color: rgb(224, 243, 255); /* สีพื้นหลังฟ้าอ่อนมาก */
+  padding: 40px 0;                      /* ระยะห่างบน-ล่าง */
+  box-shadow: 0 4px 15px rgb(226, 226, 226); /* เงาใต้กล่อง */
+  margin-bottom: 30px;                  /* ระยะห่างด้านล่าง */
 }
 
+/* หัวข้อหลักใน Hero */
 .hero-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 4px#000000;
-  text-align: center;
-  margin-bottom: 20px;
+  font-size: 2rem;      /* ขนาดตัวอักษรใหญ่ */
+  font-weight: 700;     /* ตัวหนามาก */
+  color: rgb(255, 255, 255); /* สีขาว */
+  text-shadow: 2px 2px 4px #000000; /* เงาดำหลังตัวหนังสือ */
+  text-align: center;   /* จัดกึ่งกลาง */
+  margin-bottom: 20px;  /* เว้นระยะด้านล่าง */
 }
 
+/* ตาราง Grid ใน Hero section */
 .hero-grid {
-  display: grid;
+  display: grid; /* ใช้ Grid Layout */
+  /* จัดคอลัมน์อัตโนมัติ ขนาดต่ำสุด 350px และขยายเต็ม 1fr */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
+  gap: 20px; /* ระยะห่างระหว่างช่อง */
 
-  /* grid-template-columns: 1fr 1fr;
-grid-template-columns: repeat(2, 1fr);
-grid-template-columns: repeat(2, minmax(250px, 1fr));
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+  /* ตัวอย่าง Code Grid อื่นๆ (ปิดไว้)
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
 }
 
+/* การ์ดแต่ละใบใน Hero */
 .hero-item {
-  background-color: aliceblue;
-  padding: 25px;
-  border-radius: 8px;
-  transition: all 0.5s ease;
+  background-color: aliceblue; /* สีพื้นหลัง */
+  padding: 25px;               /* ระยะห่างภายใน */
+  border-radius: 8px;          /* มุมมน */
+  transition: all 0.5s ease;   /* เอฟเฟกต์สมูท 0.5 วินาที */
 }
 
+/* เอฟเฟกต์เมื่อชี้การ์ด Hero */
 .hero-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  background: white;
+  transform: translateY(-5px); /* ลอยขึ้น 5px */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* เพิ่มเงาให้ดูมีมิติ */
+  background: white;           /* เปลี่ยนพื้นเป็นสีขาว */
 }
 
+/* หัวข้อในการ์ด Hero */
 .hero-item h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
-  line-height: 1.3;
+  color: #333;       /* สีเทาเข้ม */
+  line-height: 1.3;  /* ความสูงบรรทัด */
   margin-bottom: 10px;
 }
 
+/* เนื้อหาข้อความในการ์ด Hero */
 .hero-item p {
   font-size: 0.9rem;
-  color: #666;
-  line-height: 1.6;
+  color: #666;       /* สีเทา */
+  line-height: 1.6;  /* อ่านง่ายขึ้นด้วยบรรทัดห่าง */
   margin-bottom: 15px;
 }
 
+/* ลิงก์ "อ่านเพิ่มเติม" */
 .hero-item .read-more {
   font-size: 0.9rem;
-  color: #1e8bc3;
-
-  display: inline-block;
+  color: #1e8bc3;    /* สีฟ้า */
+  display: inline-block; /* แสดงเป็นบล็อกแนวนอนสั้นๆ */
 }
 
+/* เมื่อชี้ลิงก์อ่านเพิ่มเติม */
 .hero-item .read-more:hover {
-  color: #764ba2;
+  color: #764ba2;    /* เปลี่ยนเป็นสีม่วง */
   text-decoration: none;
 }
 
+/* ลูกศรหลังลิงก์อ่านเพิ่มเติม */
 .hero-item .read-more::after {
-  content: "→";
-  margin-left: 5px;
-
-  transition: margin-left 0.3s ease;
+  content: "→";       /* ใส่ลูกศร */
+  margin-left: 5px;   /* เว้นระยะห่างจากข้อความ */
+  transition: margin-left 0.3s ease; /* เอฟเฟกต์การขยับ */
 }
 
+/* เมื่อชี้ลิงก์ ให้ลูกศรขยับไปทางขวา */
 .hero-item .read-more:hover::after {
   margin-left: 10px;
 }
 
+/* ========================================================= */
+/* --- Content Layout (โครงสร้างเนื้อหาหลัก) --- */
+/* ========================================================= */
+
+/* จัดวางเนื้อหาหลักและ Sidebar */
 .content-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: 2fr 1fr; /* แบ่งเป็น 2 ส่วน (เนื้อหา 2 ส่วน, Sidebar 1 ส่วน) */
+  gap: 20px;          /* ระยะห่างระหว่างคอลัมน์ */
+  align-items: start; /* ให้เนื้อหาเริ่มจากด้านบนสุด */
 }
 
+/* การ์ดเนื้อหาทั่วไป */
 .card {
-  background-color: white;
-  border-radius: 4px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white; /* สีพื้นขาว */
+  border-radius: 4px;      /* มุมมน */
+  padding: 15px;           /* ระยะห่างภายใน */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* เงาบางๆ */
 }
 
+/* ส่วนหัวของโพสต์ */
 .post-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* จัดเรียงแนวนอน */
+  justify-content: space-between; /* ชิดซ้ายขวา */
+  align-items: center; /* กึ่งกลางแนวตั้ง */
 }
 
+/* วงกลมแสดงวันที่ */
 .date-circle {
   width: 50px;
   height: 50px;
-  background-color: rgb(0, 126, 184);
-  border-radius: 50%;
+  background-color: rgb(0, 126, 184); /* สีพื้นฟ้า */
+  border-radius: 50%; /* ทำเป็นวงกลม */
 
   font-size: 0.65rem;
-  color: antiquewhite;
+  color: antiquewhite; /* สีตัวอักษร */
   font-weight: 600;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: flex;          /* จัดเนื้อหาด้านในด้วย Flexbox */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  flex-direction: column;  /* เรียงบนลงล่าง */
 }
 
+/* วันที่ (ตัวเลข) ภายในวงกลม */
 .date-day {
   font-size: 1.2rem;
   font-weight: 600;
-  line-height: 0.8;
+  line-height: 0.8; /* บีบระยะบรรทัด */
 }
 
+/* หัวข้อโพสต์ */
 .post-title {
   font-size: 1.7rem;
   font-weight: 500;
-  text-transform: uppercase;
-  color: #777;
+  text-transform: uppercase; /* แปลงเป็นตัวพิมพ์ใหญ่ */
+  color: #777; /* สีเทา */
 }
 
+/* กรอบรูปภาพในโพสต์ */
 .post-image {
-  height: 300px;
-  overflow: hidden;
-
-  margin: 15px 0;
+  height: 300px; /* ความสูงคงที่ */
+  overflow: hidden; /* ซ่อนส่วนที่เกิน */
+  margin: 15px 0; /* ระยะห่างบนล่าง */
 }
 
+/* รูปภาพในโพสต์ */
 .post-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width: 100%;       /* กว้างเต็มกรอบ */
+  height: auto;      /* สูงอัตโนมัติตามสัดส่วน */
+  object-fit: cover; /* ครอบรูปให้เต็มพื้นที่โดยไม่เสียสัดส่วน */
 }
 
+/* รายละเอียดเนื้อหาในโพสต์ */
 .post-dateil {
-  color: #555;
+  color: #555;       /* สีเทาเข้ม */
   font-size: 0.8rem;
-  line-height: 1.6;
+  line-height: 1.6;  /* ระยะห่างบรรทัด */
 }
 
+/* ส่วนท้ายของโพสต์ */
 .post-footer {
   color: #555;
   font-size: 0.65rem;
 
-  border-top: 1px solid #ddd;
-  padding-top: 8px;
+  border-top: 1px solid #ddd; /* เส้นคั่นด้านบน */
+  padding-top: 8px;           /* ระยะห่างจากเส้น */
 }
 
+/* ระยะห่างระหว่างการ์ดเมื่อเรียงต่อกัน */
 .card + .card {
   margin-top: 15px;
 }
 
-/* ======= batle style =======*/
+/* ========================================================= */
+/* --- Comparison Table Style (ตารางเปรียบเทียบ) --- */
+/* ========================================================= */
 
+/* คำอธิบายตาราง */
 .table-description {
   font-size: 0.84rem;
   color: #666;
@@ -276,83 +333,98 @@ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   margin-bottom: 15px;
 }
 
+/* ตัวตารางเปรียบเทียบ */
 .comparison-table {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
+  width: 100%;            /* กว้างเต็ม */
+  border-radius: 8px;     /* มุมมน */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* เงา */
+  margin: 20px 0;         /* ระยะห่างบนล่าง */
 
-  /* border: 2px solid #fc2525; */
-  /* border-collapse: collapse; */
-  overflow: hidden;
+  /* border: 2px solid #fc2525; */ /* (ปิดไว้) เส้นขอบ */
+  /* border-collapse: collapse; */ /* (ปิดไว้) รวมเส้นขอบ */
+  overflow: hidden;       /* ซ่อนส่วนเกิน */
 }
 
+/* หัวตาราง (th) */
 .comparison-table th {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  font-size: 1re;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); /* ไล่สีพื้นหลังม่วง-ฟ้า */
+  color: white;        /* สีตัวอักษรขาว */
+  font-size: 1rem;     /* แก้คำผิด 1re เป็น 1rem */
   font-weight: 600;
 
-  text-align: left;
-  padding: 15px;
+  text-align: left;    /* จัดชิดซ้าย */
+  padding: 15px;       /* ระยะห่างภายใน */
 }
 
+/* เซลล์ข้อมูล (td) */
 .comparison-table td {
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #ffffff;
-  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0; /* เส้นคั่นบรรทัด */
+  background-color: #ffffff;        /* สีพื้นขาว */
+  padding: 12px 15px;               /* ระยะห่างภายใน */
 }
 
+/* สลับสีพื้นหลังแถวคู่ (Zebra striping) */
 .comparison-table tr:nth-child(even) td {
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* สีเทาอ่อนมาก */
 }
 
+/* เอฟเฟกต์เมื่อชี้เมาส์ที่แถว */
 .comparison-table tr:hover td {
-  background-color: #e3f2fd;
-  transition: background-color 0.3s ease;
+  background-color: #e3f2fd; /* เปลี่ยนเป็นสีฟ้าอ่อน */
+  transition: background-color 0.3s ease; /* เอฟเฟกต์เปลี่ยนสีนุ่มนวล */
 }
 
+/* สไตล์สำหรับคอลัมน์ Feature */
 .comparison-table .feature {
   font-weight: 600;
   color: #333;
-  background-color: #f0f4f8;
+  background-color: #f0f4f8; /* พื้นหลังเทาฟ้า */
 }
 
+/* สไตล์สำหรับข้อดี (Pros) */
 .comparison-table .pro {
-  color: #28a745;
+  color: #28a745; /* สีเขียว */
   font-weight: 500;
 }
 
+/* สไตล์สำหรับข้อเสีย (Cons) */
 .comparison-table .con {
-  color: #dc3545;
+  color: #dc3545; /* สีแดง */
   font-weight: 500;
 }
 
+/* สไตล์สำหรับค่ากลางๆ */
 .comparison-table .neutral {
-  color: #6c757d;
+  color: #6c757d; /* สีเทา */
 }
 
-/* SIDEBAR -----Right------------------------------------------ */
 /* ========================================================= */
+/* --- Sidebar Section (ด้านขวา) --- */
+/* ========================================================= */
+
+/* โครงสร้าง Sidebar */
 .sidebar {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: column; /* เรียงลงแนวตั้ง */
+  gap: 15px;              /* ระยะห่างระหว่าง Widget */
 }
 
+/* กล่อง Widget ใน Sidebar */
 .sidebar .widget {
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 0 0 0 1px #dee3ea;
-  padding: 15px;
+  background: #fff;       /* พื้นขาว */
+  border-radius: 3px;     /* มุมมนเล็กน้อย */
+  box-shadow: 0 0 0 1px #dee3ea; /* เงาบางๆ เหมือนเส้นขอบ */
+  padding: 15px;          /* ระยะห่างภายใน */
 }
 
+/* หัวข้อ Widget */
 .widget-title {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
+/* ข้อความใน Widget */
 .widget p {
   font-size: 0.875rem;
   color: #555;
@@ -360,13 +432,14 @@ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   margin-bottom: 8px;
 }
 
+/* กรอบรูปผู้เขียน */
 .author-photo {
   width: 100%;
   height: 140px;
-  background: #d9e3f0;
+  background: #d9e3f0; /* สีพื้นหลังสมมติรูปภาพ */
   margin: 8px 0;
 
-  display: flex;
+  display: flex;       /* ใช้ Flex จัดกึ่งกลางข้อความแทนรูป */
   align-items: center;
   justify-content: center;
 
@@ -374,9 +447,10 @@ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   color: #555;
 }
 
+/* ปุ่ม Facebook */
 .btn-facebook {
-  background: #3b5998;
-  color: #fff;
+  background: #3b5998; /* สีน้ำเงิน Facebook */
+  color: #fff;         /* ตัวอักษรขาว */
   font-size: 12px;
   border-radius: 3px;
   margin-top: 5px;
@@ -386,168 +460,173 @@ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
 }
 
 /* ========================================================= */
-/* --- Form for Left side --- */
+/* --- Form Styles (ฟอร์มติดต่อ) --- */
 /* ========================================================= */
 
-/* ---------- Title ---------- */
+/* หัวข้อฟอร์ม */
 .contact-title {
   font-size: 28px;
   font-weight: 600;
-  text-align: center;
+  text-align: center; /* กึ่งกลาง */
   color: #333;
   margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* เงาตัวหนังสือเล็กน้อย */
 }
 
-/* ---------- Container ของฟอร์ม ---------- */
+/* กรอบหลักของฟอร์ม */
 .contact-form-main {
   /* max-width: 600px; */
-  width: 95%;
+  width: 95%;          /* กว้าง 95% ของพื้นที่แม่ */
   border: 1px solid #e0e0e0;
-  border-radius: 15px;
+  border-radius: 15px; /* มุมมนมาก */
   background: #fff;
-  padding: 40px;
-  margin: 0 auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;       /* ระยะห่างภายในเยอะๆ เพื่อความโปร่ง */
+  margin: 0 auto;      /* จัดกึ่งกลางหน้า */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* เงาลอยนูน */
 }
 
-/* ---------- Layout ของแถว/กลุ่ม ---------- */
+/* แถวในฟอร์ม (แบ่ง 2 คอลัมน์) */
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* แบ่งครึ่งซ้ายขวา */
   gap: 20px;
   margin-bottom: 20px;
 }
 
+/* แถวฟอร์มแบบเต็มความกว้าง */
 .form-row.full-width {
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* คอลัมน์เดียว */
 }
 
+/* กลุ่ม Input แต่ละตัว */
 .form-group {
   margin-bottom: 15px;
 }
 
-/* ---------- Label ---------- */
+/* ป้ายกำกับ (Label) */
 .form-label {
-  display: block;
+  display: block;      /* ขึ้นบรรทัดใหม่ */
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
-/* ---------- Controls (input/select/textarea) ---------- */
+/* ช่องกรอกข้อมูลทั่วไป (Input/Select/Textarea) */
 .form-input,
 .form-select,
 .form-textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
+  width: 100%;         /* กว้างเต็ม */
+  padding: 12px 15px;  /* พื้นที่ภายในให้กรอกง่าย */
+  border-radius: 8px;  /* มุมมน */
   font-size: 14px;
-  transition: all 0.2s ease;
-
-  /* transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
-transform 0.2s ease; */
+  transition: all 0.2s ease; /* เอฟเฟกต์เปลี่ยนสถานะ */
 }
 
+/* ช่องข้อความยาว (Textarea) */
 .form-textarea {
-  min-height: 100px;
-  resize: vertical;
+  min-height: 100px;  /* สูงอย่างน้อย 100px */
+  resize: vertical;   /* ย่อขยายได้เฉพาะแนวตั้ง */
 }
 
+/* ช่องเลือกตัวเลือก (Select) */
 .form-select {
-  cursor: pointer;
+  cursor: pointer;    /* เปลี่ยนเมาส์เป็นรูปมือ */
 }
 
-/* ฟอร์มหลัก (พื้นขาว) */
+/* สไตล์เฉพาะของฟอร์มหลัก (สีพื้นและขอบ) */
 .contact-form-main .form-input,
 .contact-form-main .form-select,
 .contact-form-main .form-textarea {
-  background: #f8f9fa;
-  border: 2px solid #e9ecef;
+  background: #f8f9fa;       /* สีพื้นเทาอ่อน */
+  border: 2px solid #e9ecef; /* ขอบสีเทาจาง */
   color: #333;
 }
 
-/* Focus: ฟอร์มหลัก */
+/* เมื่อคลิกหรือเลือกที่ช่องกรอก (Focus) */
 .contact-form-main .form-input:focus,
 .contact-form-main .form-select:focus,
 .contact-form-main .form-textarea:focus {
-  outline: none;
-  background: #fff;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.18);
-  transform: translateY(-1px);
+  outline: none;       /* เอาเส้น focus เดิมออก */
+  background: #fff;    /* เปลี่ยนพื้นเป็นขาว */
+  border-color: #667eea; /* เปลี่ยนขอบเป็นสีม่วงฟ้า */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.18); /* เพิ่มเงาเรืองแสง */
+  transform: translateY(-1px); /* ขยับขึ้นเล็กน้อย */
 }
 
-/* ---------- Checkbox group ---------- */
+/* กลุ่ม Checkbox */
 .form-checkbox-group {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* ปัดบรรทัดถ้ายาวเกิน */
   gap: 15px;
   margin-top: 10px;
 }
 
+/* ตัวเลือก Checkbox แต่ละตัว */
 .checkbox-item {
   display: flex;
-  align-items: center;
+  align-items: center; /* จัดให้กล่องกับข้อความตรงกัน */
   font-size: 14px;
 }
 
-/* สีข้อความ checkbox แยกตามฟอร์ม */
+/* สีข้อความ Checkbox */
 .contact-form-main .checkbox-item {
   color: #333;
 }
 
+/* ปรับแต่งตัวกล่อง Checkbox */
 .checkbox-item input[type="checkbox"] {
-  margin-right: 8px;
-  transform: scale(1.15);
-  accent-color: #ff6b6b;
+  margin-right: 8px;   /* เว้นระยะห่างจากข้อความ */
+  transform: scale(1.15); /* ขยายขนาดเล็กน้อย */
+  accent-color: #ff6b6b; /* เปลี่ยนสีติ๊กถูกเป็นสีส้มแดง */
 }
 
-/* ---------- Button (ใช้ class เดียว) ---------- */
+/* ปุ่มส่งฟอร์ม (Button) */
 .form-button {
   width: 100%;
   border: none;
   padding: 12px 30px;
-  border-radius: 25px;
+  border-radius: 25px; /* ปุ่มมนรี */
   font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
+  cursor: pointer;     /* เมาส์รูปมือ */
   color: #fff;
   transition: all 0.2s ease;
-
-  /* transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; */
 }
 
-/* ปุ่มของฟอร์มหลัก */
+/* สีพื้นหลังปุ่มแบบไล่เฉด */
 .contact-form-main .form-button {
   background: linear-gradient(45deg, #667eea, #764ba2);
 }
 
+/* เอฟเฟกต์เมื่อชี้ปุ่ม */
 .contact-form-main .form-button:hover {
-  background: linear-gradient(45deg, #5a67d8, #6b46c1);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+  background: linear-gradient(45deg, #5a67d8, #6b46c1); /* เปลี่ยนเฉดสี */
+  transform: translateY(-2px); /* ปุ่มลอยขึ้น */
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35); /* เงาสีม่วง */
 }
 
 /* ========================================================= */
-/* --- Gold Price Table Styles --- */
+/* --- Gold Price Table Styles (ตารางราคาทอง) --- */
 /* ========================================================= */
 
+/* ตารางราคาทอง */
 .gold-price-table {
   width: 100%;
   margin: 30px 0;
-  border-collapse: separate;
+  border-collapse: separate; /* แยกขอบเพื่อทำมุมมน */
   border-spacing: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  border-radius: 12px;       /* มุมมนของตาราง */
+  overflow: hidden;          /* ตัดส่วนเกิน */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* เงานุ่มนวล */
   font-size: 0.95rem;
   border: 1px solid #e1e1e1;
   background-color: #fff;
+  
+  animation: slideInFromBottom 0.6s ease-out forwards; /* อนิเมชั่นเลื่อนขึ้นเมื่อโหลด */
 }
 
+/* คีย์เฟรมอนิเมชั่นเลื่อนจากล่างขึ้นบน */
 @keyframes slideInFromBottom {
-  /* Simple fade in animation */
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -558,173 +637,176 @@ transform 0.2s ease; */
   }
 }
 
-.gold-price-table {
-  animation: slideInFromBottom 0.6s ease-out forwards;
-}
-
+/* ส่วนหัวตารางราคาทอง (tr ใน thead) */
 .gold-price-table thead tr {
-  /* Gold-ish gradient that looks premium but readable */
-  background: linear-gradient(135deg, #c79081 0%, #dfa579 100%);
-  /* Actually let's try a more classic gold/brown or match the site blue? 
-     The USER prompt implies generic styling but the content is Gold. 
-     A soft blue/gold mix or just the site's blue might be safer if they want consistency.
-     However, let's go with a premium Dark Gold/Bronze gradient. */
+  /* ใช้สีทองเข้มไล่เฉดให้ดูพรีเมียม */
   background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
 }
 
+/* เซลล์หัวตาราง (th ใน thead) */
 .gold-price-table thead th {
-  color: #fff;
+  color: #fff;         /* ตัวอักษรขาว */
   font-weight: 600;
   padding: 16px;
   text-align: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15); /* เส้นแบ่งจางๆ */
+  text-transform: uppercase; /* ตัวพิมพ์ใหญ่ */
+  letter-spacing: 0.5px;     /* ระยะห่างตัวอักษร */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* ลบเส้นแบ่งขวาของเซลล์สุดท้าย */
 .gold-price-table thead th:last-child {
   border-right: none;
 }
 
-/* Data Rows */
+/* แถวข้อมูล (tr) */
 .gold-price-table tbody tr {
   transition: background-color 0.2s ease;
 }
 
+/* แถวคู่ให้มีสีพื้นต่างออกไป (Zebra) */
 .gold-price-table tbody tr:nth-child(even) {
   background-color: #f8f9fa;
 }
 
+/* เมื่อชี้แถว */
 .gold-price-table tbody tr:hover {
-  background-color: #fffcf2; /* Very light yellow on hover */
+  background-color: #fffcf2; /* สีเหลืองอ่อนมากๆ */
 }
 
+/* เซลล์ข้อมูลทั่วไป */
 .gold-price-table th,
 .gold-price-table td {
   padding: 14px 15px;
   text-align: center;
   border-bottom: 1px solid #ececec;
-  vertical-align: middle;
+  vertical-align: middle; /* จัดกึ่งกลางแนวตั้ง */
 }
 
-/* First Column (Month) */
+/* คอลัมน์แรก (เดือน) */
 .gold-price-table tbody th {
-  background-color: #fff; /* Keep it clean or slightly different? */
+  background-color: #fff;
   color: #444;
   font-weight: 600;
-  border-right: 2px solid #f0f0f0;
+  border-right: 2px solid #f0f0f0; /* เส้นแบ่งแยกคอลัมน์แรก */
 }
 
-/* Status Colors */
+/* สถานะราคาขึ้น (สีเขียว) */
 .gold-price-table td.up {
-  color: #22c55e; /* Green */
+  color: #22c55e;
   font-weight: 600;
-  background-color: rgba(34, 197, 94, 0.05); /* Subtle green bg */
+  background-color: rgba(34, 197, 94, 0.05); /* พื้นหลังเขียวจาง */
   border-radius: 4px;
 }
 
+/* สถานะราคาลง (สีแดง) */
 .gold-price-table td.down {
-  color: #ef4444; /* Red */
+  color: #ef4444;
   font-weight: 600;
-  background-color: rgba(239, 68, 68, 0.05); /* Subtle red bg */
+  background-color: rgba(239, 68, 68, 0.05); /* พื้นหลังแดงจาง */
   border-radius: 4px;
 }
 
+/* สถานะปกติ (สีเทา) */
 .gold-price-table td.neutral {
   color: #9ca3af;
 }
 
-/* Total Row */
+/* แถวผลรวม (Total Row) */
 .gold-price-table tr.total-row {
-  background-color: #fffcf4; /* Light gold tint background for the whole row */
+  background-color: #fffcf4; /* พื้นหลังสีทองอ่อนทั้งแถว */
 }
 
+/* ปรับแต่งเซลล์ในแถวผลรวม */
 .gold-price-table tr.total-row th,
 .gold-price-table tr.total-row td {
-  border-top: 2px solid #DAA520; /* Move border to cells for correct rendering */
+  border-top: 2px solid #DAA520; /* เส้นขอบบนสีทอง */
   color: #333;
-  font-weight: 700; /* Bold text for totals */
+  font-weight: 700; /* ตัวหนา */
 }
 
+/* หัวแถวผลรวม */
 .gold-price-table tr.total-row th {
-  color: #B8860B; /* Dark gold for the 'Total' label */
+  color: #B8860B; /* สีทองเข้ม */
   font-size: 1.05rem;
 }
 
-/* Ensure the status colors (green/red) remain on the total row but keep bold weight */
+/* คงสีสถานะ (เขียว/แดง) ไว้ในแถวผลรวม */
 .gold-price-table tr.total-row td.up {
   color: #22c55e;
 }
-
 .gold-price-table tr.total-row td.down {
   color: #ef4444;
 }
 
-/* Responsive Table */
+/* การแสดงผลบนมือถือ (Responsive Table) */
 @media screen and (max-width: 768px) {
   .gold-price-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
+    display: block;      /* เปลี่ยนเป็น Block */
+    overflow-x: auto;    /* ให้เลื่อนแนวนอนได้ */
+    white-space: nowrap; /* ห้ามตัดบรรทัด */
+    -webkit-overflow-scrolling: touch; /* เลื่อนลื่นไหลใน iOS */
   }
 }
 
 /* ========================================================= */
-/* --- Footer Styles --- */
+/* --- Footer Styles (ส่วนท้ายเว็บ) --- */
 /* ========================================================= */
 
+/* ส่วน Footer หลัก */
 .site-footer {
-  background-color: #1a1a1a;
-  color: #b0b0b0;
-  padding: 60px 0 20px;
+  background-color: #1a1a1a;  /* พื้นหลังสีดำเกือบสนิท */
+  color: #b0b0b0;             /* ตัวอักษรสีเทา */
+  padding: 60px 0 20px;       /* ระยะห่าง */
   margin-top: 60px;
   font-size: 0.9rem;
-  border-top: 5px solid #007eb8; /* Accent color matching site theme */
+  border-top: 5px solid #007eb8; /* แถบสีด้านบน Footer */
 }
 
-/* Responsive Footer Content */
-/* .site-footer .wrapper uses global wrapper styles */
-
+/* ส่วนเนื้อหา Footer ที่แบ่งคอลัมน์ */
 .footer-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;            /* ปัดบรรทัดเมื่อจอเล็ก */
   justify-content: space-between;
   gap: 40px;
   margin-bottom: 40px;
 }
 
+/* แต่ละคอลัมน์ใน Footer */
 .footer-section {
-  flex: 1;
-  min-width: 250px;
+  flex: 1;                /* ยืดขยายเท่าๆ กัน */
+  min-width: 250px;       /* ความกว้างขั้นต่ำ */
 }
 
+/* หัวข้อใน Footer */
 .footer-section h3 {
-  color: #fff;
+  color: #fff;            /* สีขาว */
   font-size: 1.2rem;
   margin-bottom: 20px;
   font-weight: 600;
-  position: relative;
+  position: relative;     /* เพื่อใช้สำหรับขีดเส้นใต้ด้วย after */
   padding-bottom: 10px;
 }
 
+/* เส้นขีดใต้หัวข้อ Footer */
 .footer-section h3::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 50px;
+  width: 50px;            /* ความยาวเส้น */
   height: 2px;
-  background-color: #007eb8;
+  background-color: #007eb8; /* สีเส้น */
 }
 
+/* ข้อความใน Footer */
 .footer-section p {
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
-/* Links Section */
+/* ลิงก์ต่าง ๆ ใน Footer */
 .footer-section.links ul {
   list-style: none;
   padding: 0;
@@ -732,12 +814,12 @@ transform 0.2s ease; */
 
 .footer-section.links ul li {
   margin-bottom: 10px;
-  border-bottom: 1px dashed rgba(255,255,255,0.1);
+  border-bottom: 1px dashed rgba(255,255,255,0.1); /* เส้นประคั่น */
   padding-bottom: 5px;
 }
 
 .footer-section.links ul li:last-child {
-  border-bottom: none;
+  border-bottom: none; /* ตัวสุดท้ายไม่ต้องมีเส้น */
 }
 
 .footer-section.links ul li a {
@@ -746,13 +828,14 @@ transform 0.2s ease; */
   display: inline-block;
 }
 
+/* เอฟเฟกต์ชี้ลิงก์ Footer */
 .footer-section.links ul li a:hover {
   color: #fff;
-  padding-left: 5px; /* Slight movement on hover */
+  padding-left: 5px;    /* ขยับขวาเล็กน้อย */
   text-decoration: none;
 }
 
-/* Social Buttons */
+/* ปุ่มโซเชียลใน Footer */
 .footer-social {
   display: flex;
   gap: 10px;
@@ -761,7 +844,7 @@ transform 0.2s ease; */
 
 .footer-social a {
   color: #fff;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255,255,255,0.1); /* พื้นหลังโปร่งใส */
   padding: 8px 15px;
   border-radius: 4px;
   font-size: 0.85rem;
@@ -770,17 +853,17 @@ transform 0.2s ease; */
 }
 
 .footer-social a:hover {
-  background-color: #007eb8;
-  transform: translateY(-3px);
+  background-color: #007eb8; /* เปลี่ยนสีพื้นเมื่อชี้ */
+  transform: translateY(-3px); /* ลอยขึ้น */
   color: #fff;
-  border-color: transparent; /* Override any global link border styles */
+  border-color: transparent;
 }
 
-/* Footer Bottom */
+/* ส่วนล่างสุดของ Footer (Copyright) */
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.1); /* เส้นแบ่งจางๆ */
   padding-top: 20px;
-  text-align: center;
+  text-align: center;     /* จัดกึ่งกลาง */
   font-size: 0.85rem;
   color: #888;
 }
