@@ -867,3 +867,101 @@ a:hover {
   font-size: 0.85rem;
   color: #888;
 }
+
+/* ========================================================= */
+/* --- Responsive Design (การแสดงผลบนหน้าจอขนาดต่าง ๆ) --- */
+/* ========================================================= */
+/* สิ่งนี้เรียกว่า "Responsive Web Design" คือการทําให้เว็บปรับตัวตามขนาดหน้าจอ */
+
+/* สํารับหน้าจอ Tablet และ Mobile (ขนาดไม่เกิน 1024px) */
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 95%; /* ขยายความกว้าง wrapper ให้เกือบเต็มจอ ไม่ fix 1000px */
+  }
+}
+
+/* สํารับหน้าจอ Mobile (ขนาดไม่เกิน 768px) */
+@media screen and (max-width: 768px) {
+  /* ปรับ Header */
+  .box-header-inner {
+    flex-direction: column; /* เรียงลงแนวตั้ง */
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .social-icon {
+    display: flex;
+    justify-content: center; /* จัดไอคอนกึ่งกลาง */
+    margin-top: 10px;
+  }
+  
+  .social-icon a {
+    margin: 0 5px; /* ปรับระยะห่างใหม่ */
+  }
+
+  /* ปรับ Menu */
+  .nav-menu {
+    justify-content: center; /* เมนูกึ่งกลาง */
+    gap: 10px;
+  }
+  
+  .nav-menu li a {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 0.85rem;
+  }
+
+  /* ปรับ Content Layout (Main + Sidebar) */
+  .content-layout {
+    grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ (Sidebar ลงไปข้างล่าง) */
+  }
+
+  /* ปรับ Hero Grid */
+  .hero-grid {
+    grid-template-columns: 1fr; /* เรียงการ์ด Hero ลงมาทีละใบ */
+  }
+
+  /* ปรับ Form */
+  .form-row {
+    grid-template-columns: 1fr; /* Input เรียงลงมาทีละบรรทัด */
+  }
+
+  /* ปรับสัดส่วนรูปภาพ */
+  .post-image {
+    height: auto;
+    max-height: 250px;
+  }
+  
+  /* ปรับ Header ของบทความ */
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .date-circle {
+    /* ย้ายวันที่ไปตำแหน่งที่เหมาะสม หรือซ่อนถ้าต้องการ */
+    align-self: flex-start;
+  }
+
+  /* ปรับ Footer */
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* สํารับหน้าจอเล็กมาก (ขนาดไม่เกิน 480px) */
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem; /* ลดขนาดหัวข้อ */
+  }
+
+  .post-title {
+    font-size: 1.3rem;
+  }
+  
+  .contact-form-main {
+    padding: 20px; /* ลด padding ของฟอร์ม */
+  }
+}
