@@ -965,3 +965,28 @@ a:hover {
     padding: 20px; /* ลด padding ของฟอร์ม */
   }
 }
+
+/* ========================================================= */
+/* --- Icon Styles (สไตล์ไอคอนลูกศร) --- */
+/* ========================================================= */
+
+.icon {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;   /* ลดขนาดความกว้างซ้าย */
+  border-right: 6px solid transparent;  /* ลดขนาดความกว้างขวา */
+  display: inline-block;                /* แสดงผลแนวนอนคู่กับข้อความ */
+  margin-right: 8px;                    /* เว้นระยะห่างจากตัวเลข */
+  vertical-align: middle;               /* จัดกึ่งกลางแนวตั้งกับบรรทัด */
+  transform: translateY(-2px);          /* ปรับระดับสูงต่ำเล็กน้อย */
+}
+
+/* ลูกศรชี้ขึ้น (สีเขียว) */
+.icon.up {
+  border-bottom: 8px solid #22c55e;     /* สีเขียวเดียวกับ text-green */
+}
+
+/* ลูกศรชี้ลง (สีแดง) */
+.icon.down {
+  border-top: 8px solid #ef4444;        /* สีแดงเดียวกับ text-red */
+}
